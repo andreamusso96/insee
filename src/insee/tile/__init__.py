@@ -1,1 +1,1 @@
-from .interface import get_data, get_matching_tiles
+from .interface import get_data, get_matching_tiles, get_geo_data

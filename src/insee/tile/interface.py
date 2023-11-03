@@ -1,11 +1,16 @@
 from typing import List, Union
 
 import geopandas as gpd
+import pandas as pd
 import numpy as np
 
 from .data import data
 from ..import utils
 
+
+def get_geo_data(tile: List[str] = None) -> gpd.GeoDataFrame:
+    geo_data = get_data(tile=tile, var_name='geometry', shares=False)
+    return geo_data
 
 def get_matching_tiles(polygons: gpd.GeoDataFrame, return_intersection_area: bool = True) -> gpd.GeoDataFrame:
     return utils.get_matching_between_polygons_and_insee_geo_data(polygons=polygons, insee_geo_data=data.data, insee_geo_data_name='tile', return_intersection_area=return_intersection_area)
